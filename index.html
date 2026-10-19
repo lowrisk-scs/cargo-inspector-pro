@@ -297,6 +297,271 @@ svg{width:100%;height:auto;}
 .c-mod-desc{font-size:11px;color:#555;}
 .c-mod-time{font-size:10px;font-weight:700;color:var(--brand,#f59e0b);margin-top:3px;}
 .c-mod-check{font-size:18px;margin-left:auto;flex-shrink:0;}
+
+/* ═══════ LOWRISK color tokens for new UI elements ═══════ */
+:root{
+  --lw-blue: #1E6BD6;
+  --lw-blue-dark: #164F9E;
+  --lw-amber: #F3B829;
+  --lw-green: #2DA85A;
+  --lw-red: #E85A52;
+  --lw-text: #0F2E4A;
+  --lw-text-mid: #5E6B7D;
+  --lw-text-muted: #8B96A6;
+  --lw-bg: #F0F2F7;
+  --lw-card: #FFFFFF;
+  --lw-border: #E1E6ED;
+  --lw-border-strong: #B9C2D1;
+}
+
+/* ═══════ App header (used in HOME + level-select) ═══════ */
+.app-header{
+  background: #FFFFFF;
+  border-bottom: 1px solid #E1E6ED;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.app-header-left{display:flex;align-items:center;gap:12px;min-width:0;flex:1;}
+.app-brand{display:flex;align-items:center;}
+.app-brand-logo{height:28px;width:auto;display:block;flex-shrink:0;}
+.app-brand-divider{width:1px;height:22px;background:#D8DEE8;flex-shrink:0;}
+.app-company{display:flex;align-items:center;gap:10px;min-width:0;}
+.app-company-logo{width:28px;height:28px;border-radius:6px;object-fit:contain;flex-shrink:0;background:#F0F2F7;}
+.app-company-name{font-size:13px;font-weight:700;color:#0F2E4A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.app-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.app-user{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 12px;
+  background:#F0F2F7;
+  border-radius:999px;
+  font-size:12px;font-weight:600;
+  color:#0F2E4A;
+}
+.app-user-avatar{
+  width:22px;height:22px;border-radius:50%;
+  background:#1E6BD6;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:800;
+  flex-shrink:0;
+}
+.hdr-back-btn{
+  background:transparent;border:1px solid #D8DEE8;color:#5E6B7D;
+  padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;
+  cursor:pointer;font-family:inherit;
+}
+.hdr-back-btn:hover{background:#F0F2F7;color:#0F2E4A;}
+
+/* ═══════ HOME screen (3-step learning path) ═══════ */
+#scr-levels{background:#F0F2F7;}
+.lw-home{max-width:720px;margin:0 auto;padding:24px 20px 40px;display:flex;flex-direction:column;gap:14px;}
+.lw-hero{padding:4px 4px 12px;}
+.lw-hero .eyebrow{font-size:11px;font-weight:800;letter-spacing:.1em;color:#1E6BD6;text-transform:uppercase;margin-bottom:8px;}
+.lw-hero h1{font-size:28px;font-weight:800;color:#0F2E4A;letter-spacing:-.015em;line-height:1.15;margin-bottom:6px;}
+.lw-hero p{font-size:14px;color:#5E6B7D;line-height:1.5;}
+
+.path-step{
+  background:#FFFFFF;
+  border:1px solid #E1E6ED;
+  border-radius:16px;
+  padding:20px 22px;
+  display:flex;align-items:center;gap:16px;
+  box-shadow:0 1px 2px rgba(15,46,74,0.04);
+  transition:border-color .15s, box-shadow .15s;
+  position:relative;
+}
+.path-step.active{border-color:#1E6BD6;border-width:1.5px;}
+.path-step.completed{background:#F7FBF8;border-color:#B8D9A8;}
+.path-step.locked{opacity:.55;}
+.path-step-num{
+  flex-shrink:0;
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;
+  background:#F0F2F7;color:#5E6B7D;
+}
+.path-step.active .path-step-num{background:#1E6BD6;color:#FFFFFF;}
+.path-step.completed .path-step-num{background:#2DA85A;color:#FFFFFF;}
+.path-step-body{flex:1;min-width:0;}
+.path-step-eyebrow{font-size:10px;font-weight:800;letter-spacing:.08em;color:#8B96A6;text-transform:uppercase;margin-bottom:3px;}
+.path-step.active .path-step-eyebrow{color:#1E6BD6;}
+.path-step.completed .path-step-eyebrow{color:#1D7840;}
+.path-step-title{font-size:16px;font-weight:800;color:#0F2E4A;line-height:1.25;margin-bottom:2px;}
+.path-step-desc{font-size:13px;color:#5E6B7D;line-height:1.45;}
+.path-step-arrow{color:#8B96A6;font-size:22px;}
+.path-step.active .path-step-arrow{color:#1E6BD6;}
+.path-step.completed .path-step-arrow{color:#2DA85A;}
+
+.path-connector{width:2px;height:14px;background:#D8DEE8;margin:-4px auto;}
+
+.home-extra{margin-top:16px;}
+.home-extra-card{
+  background:#FFFFFF;border:1px solid #E1E6ED;border-radius:12px;
+  padding:14px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;
+  transition:border-color .15s;
+}
+.home-extra-card:hover{border-color:#1E6BD6;}
+.home-extra-ico{width:40px;height:40px;background:#F0F2F7;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.home-extra-title{font-size:14px;font-weight:700;color:#0F2E4A;}
+.home-extra-desc{font-size:12px;color:#5E6B7D;margin-top:2px;}
+.home-extra-arrow{color:#8B96A6;font-size:18px;}
+
+.app-footer{padding:24px 0 12px;text-align:center;font-size:11px;color:#8B96A6;font-weight:500;}
+.app-footer strong{color:#0F2E4A;}
+
+/* ═══════ Level cards (new LOWRISK style for level-select) ═══════ */
+.levels-grid{display:flex;flex-direction:column;gap:12px;}
+
+/* ═══════ VVTT visual steps (works in dark course context) ═══════ */
+.vvtt-steps-dark{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin:18px 0;}
+@media (max-width:720px){.vvtt-steps-dark{grid-template-columns:1fr;}.vvtt-arrow{transform:rotate(90deg);justify-self:center;}}
+.vvtt-step-dark{background:#13151e;border:1px solid #2a2d3a;border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;}
+.vvtt-c1{border-top:3px solid #1E6BD6;}
+.vvtt-c2{border-top:3px solid #2DA85A;}
+.vvtt-c3{border-top:3px solid #F3B829;}
+.vvtt-c4{border-top:3px solid #E85A52;}
+.vvtt-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.vvtt-letter{width:34px;height:34px;border-radius:10px;background:#1a1d26;color:#e8e6e0;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;}
+.vvtt-c1 .vvtt-letter{background:#0a1930;color:#60a5fa;}
+.vvtt-c2 .vvtt-letter{background:#0a1f0a;color:#86efac;}
+.vvtt-c3 .vvtt-letter{background:#1f1a0a;color:#fde68a;}
+.vvtt-c4 .vvtt-letter{background:#1f0a0a;color:#fca5a5;}
+.vvtt-ico{font-size:22px;opacity:0.85;}
+.vvtt-word{font-size:15px;font-weight:800;color:#e8e6e0;letter-spacing:.03em;margin-bottom:3px;}
+.vvtt-sub{font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.vvtt-desc{font-size:12px;color:#aaa;line-height:1.5;}
+.vvtt-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;color:#555;font-weight:800;}
+
+/* ═══════ LOGIN / CODE / REGISTRATION SCREENS (LOWRISK light theme) ═══════ */
+#scr-code, #scr-reg { background: #F0F2F7; min-height: 100vh; }
+.lw-login{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+.login-card{
+  background: #FFFFFF;
+  border: 1px solid #E1E6ED;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 8px 24px rgba(15,46,74,0.08), 0 2px 6px rgba(15,46,74,0.04);
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+}
+.login-header{
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E8ECF4;
+}
+.login-eyebrow{
+  font-size: 11px; font-weight: 800; letter-spacing: .12em;
+  color: #1E6BD6; text-transform: uppercase; margin-bottom: 8px;
+}
+.login-title{
+  font-size: 24px; font-weight: 800; color: #0F2E4A;
+  line-height: 1.2; letter-spacing: -.01em; margin: 0 0 8px;
+}
+.login-reg-title{
+  font-size: 22px; font-weight: 800; color: #0F2E4A;
+  line-height: 1.2; margin: 0 0 6px;
+}
+.login-sub{
+  font-size: 14px; color: #5E6B7D; line-height: 1.5; margin: 0;
+}
+.login-form{ display: flex; flex-direction: column; }
+.login-label{
+  display: block; font-size: 12px; font-weight: 700;
+  color: #0F2E4A; margin-bottom: 6px;
+}
+.login-input{
+  width: 100%;
+  padding: 13px 15px;
+  border: 1.5px solid #D8DEE8;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #FFFFFF;
+  color: #0F2E4A;
+  outline: none;
+  transition: border-color .12s, box-shadow .12s;
+  box-sizing: border-box;
+  margin-bottom: 14px;
+}
+.login-input:focus{
+  border-color: #1E6BD6;
+  box-shadow: 0 0 0 3px rgba(30,107,214,0.15);
+}
+.login-input::placeholder{ color: #8B96A6; }
+.login-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: #1E6BD6;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .12s, box-shadow .12s;
+  width: 100%;
+  line-height: 1.2;
+}
+.login-btn:hover:not(:disabled){ background: #164F9E; box-shadow: 0 2px 8px rgba(15,46,74,0.08); }
+.login-btn:disabled{ opacity: .5; cursor: not-allowed; }
+.login-demo{
+  display: block; width: 100%;
+  background: transparent; border: none;
+  color: #5E6B7D; font-size: 13px; font-weight: 500;
+  text-align: center; margin-top: 18px;
+  cursor: pointer; font-family: inherit;
+  padding: 8px; transition: color .12s;
+}
+.login-demo:hover{ color: #1E6BD6; }
+.login-note{
+  font-size: 12px; color: #8B96A6;
+  text-align: center; margin: 14px 0 0; line-height: 1.5;
+}
+.login-footer{
+  margin-top: 24px; font-size: 11px; color: #8B96A6;
+  text-align: center; font-weight: 500;
+}
+.login-footer strong{ color: #0F2E4A; }
+#scr-code .code-status{
+  font-size: 13px; text-align: center; min-height: 20px;
+  margin-top: 12px; font-weight: 600;
+}
+#scr-code .code-status.ok{ color: #2DA85A; }
+#scr-code .code-status.err{ color: #C33E36; }
+#scr-code .code-status.loading{ color: #1E6BD6; }
+.login-reg-top{
+  display: flex; align-items: center; gap: 12px;
+  padding-bottom: 18px; margin-bottom: 20px;
+  border-bottom: 1px solid #E8ECF4;
+}
+.login-reg-company{ flex: 1; min-width: 0; }
+.login-reg-company-lbl{
+  font-size: 10px; font-weight: 800; letter-spacing: .08em;
+  color: #8B96A6; text-transform: uppercase; margin-bottom: 2px;
+}
+.login-reg-company-name{
+  font-size: 14px; font-weight: 700; color: #0F2E4A;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -381,20 +646,23 @@ svg{width:100%;height:auto;}
 <!-- ══ REGISTRATION ══ -->
 <!-- ══ COMPANY CODE ══ -->
 <div id="scr-code" class="scr active">
-<div class="codew">
-  <div class="code-card">
-    <div class="code-logo">
-      <div class="code-ico">&#128667;</div>
-      <div><div class="code-title">Cargo Inspector Pro</div><div class="code-sub">Inspección de seguridad en la cadena de suministro</div></div>
+<div class="lw-login">
+  <div class="login-card">
+    <div class="login-header">
+      <img src="" class="app-brand-logo" style="height:44px;margin:0 auto 20px;display:block;" alt="LOWRISK"/>
+      <div class="login-eyebrow">CARGO INSPECTOR PRO</div>
+      <h1 class="login-title">Inspección de seguridad</h1>
+      <p class="login-sub">Capacitación y evaluación de inspectores BASC</p>
     </div>
-    <div class="frow"><label>CÓDIGO DE EMPRESA</label>
-      <input id="c-code" placeholder="Ingresa el código de tu empresa" autocomplete="off" style="font-family:monospace;letter-spacing:.05em;"
-        onkeydown="if(event.key==='Enter')verifyCode()"/>
+    <div class="login-form">
+      <label class="login-label" for="c-code">Código de empresa</label>
+      <input id="c-code" class="login-input" placeholder="Ingresa tu código" autocomplete="off" onkeydown="if(event.key==='Enter')verifyCode()"/>
+      <button type="button" class="login-btn" onclick="verifyCode()" id="code-btn">Entrar</button>
+      <div class="code-status" id="code-status"></div>
     </div>
-    <button class="sbtn brand-btn" onclick="verifyCode()" id="code-btn">Verificar &#8594;</button>
-    <div class="code-status" id="code-status"></div>
-    <p class="code-demo" onclick="useDemoMode()">¿No tienes código? Usar modo demostración</p>
+    <button type="button" class="login-demo" onclick="useDemoMode()">¿Sin código? Probar en modo demostración</button>
   </div>
+  <div class="login-footer">Cargo Inspector Pro · Desarrollado por <strong>LOWRISK</strong></div>
 </div>
 </div>
 
@@ -411,7 +679,7 @@ svg{width:100%;height:auto;}
   </div>
   <div class="c-mod-menu" id="c-mod-menu"></div>
   <button class="sbtn brand-btn" id="c-start-btn" onclick="startCourse()">Comenzar Módulo 1 &#8594;</button>
-  <p style="text-align:center;font-size:11px;color:#444;margin-top:8px;cursor:pointer;" onclick="skipCourse()">Ya conozco el protocolo — ir al simulador</p>
+  <button type="button" class="sbtn" style="background:transparent;border:1px solid #2a2d3a;color:#aaa;margin-top:8px;font-size:12px;" onclick="courseSkipToSim()">Ya conozco el protocolo — ir al simulador</button>
 </div>
 </div>
 
@@ -429,101 +697,126 @@ svg{width:100%;height:auto;}
 
 
 <div id="scr-reg" class="scr">
-<div class="rw">
-  <div class="reg-card">
-    <div class="reg-logo">
-      <div class="reg-ico">&#128667;</div>
-      <div><div class="reg-title">Cargo Inspector Pro</div><div class="reg-sub">Inspección de seguridad en la cadena de suministro</div></div>
+<div class="lw-login">
+  <div class="login-card">
+    <div class="login-reg-top">
+      <img src="" class="app-brand-logo" style="height:30px;" alt="LOWRISK"/>
+      <div class="login-reg-company">
+        <div class="login-reg-company-lbl">Empresa</div>
+        <div class="login-reg-company-name" id="reg-company-name-top">Mi Empresa</div>
+      </div>
     </div>
-    <div id="reg-company-banner" style="background:#1f1a0a;border:1px solid #f59e0b44;border-radius:8px;padding:8px 12px;margin-bottom:14px;display:none;">
-      <div id="reg-company-logo-wrap" style="margin-bottom:6px;display:none;"><img id="reg-company-logo" src="" style="height:28px;object-fit:contain;"/></div>
-      <div style="font-size:11px;color:#888;">Empresa</div>
-      <div style="font-size:14px;font-weight:700;color:#e8e6e0;" id="reg-company-name"></div>
+    <div class="login-form">
+      <div class="login-eyebrow" style="margin-top:0;margin-bottom:6px;">REGISTRO</div>
+      <h2 class="login-reg-title">Antes de empezar</h2>
+      <p class="login-sub" style="margin-bottom:18px;">Registra tus datos para que se guarden tus resultados.</p>
+      <label class="login-label" for="r-name">Nombre completo</label>
+      <input id="r-name" class="login-input" placeholder="Como aparecerá en tu certificado" maxlength="60" autocomplete="off" onkeydown="if(event.key==='Enter')goLevels()"/>
+      <button type="button" class="login-btn" onclick="goLevels()">Continuar</button>
     </div>
-    <div class="frow"><label>TU NOMBRE COMPLETO</label><input id="r-name" placeholder="Tu nombre" maxlength="60" autocomplete="off"/></div>
-    <button class="sbtn brand-btn" onclick="goLevels()">Continuar &#8594;</button>
-    <p class="reg-note">Tus resultados se guardan automáticamente al finalizar.</p>
+    <p class="login-note">Tus resultados se guardan automáticamente al finalizar cada actividad.</p>
   </div>
+  <div class="login-footer">Cargo Inspector Pro · Desarrollado por <strong>LOWRISK</strong></div>
 </div>
 </div>
 
-<!-- ══ LEVEL SELECT ══ -->
+<!-- ══ HOME / LEARNING PATH ══ -->
 <div id="scr-levels" class="scr">
-<div class="lw">
-  <!-- TOP BAR -->
-  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <div id="home-company-ico" style="width:40px;height:40px;border-radius:10px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;overflow:hidden;"><img id="home-default-logo" src="" style="width:100%;height:100%;object-fit:cover;display:none;"><span id="home-default-emoji">&#128667;</span></div>
-      <div>
-        <div style="font-size:13px;font-weight:800;color:#888;letter-spacing:.08em;line-height:1;">CARGO INSPECTOR PRO</div>
-        <div style="font-size:18px;font-weight:800;color:#1a1a1a;line-height:1.2;margin-top:1px;" id="home-company-title">Entrenamiento para Inspector</div>
+  <div class="app-header">
+    <div class="app-header-left">
+      <div class="app-brand"><img class="app-brand-logo" src="" alt="LOWRISK"/></div>
+      <div class="app-brand-divider"></div>
+      <div class="app-company">
+        <img id="app-company-logo" class="app-company-logo" src="" alt="" style="display:none;"/>
+        <div class="app-company-name" id="app-company-name">Mi Empresa</div>
       </div>
     </div>
-    <button onclick="changeParticipant()" style="background:transparent;border:1px solid #d5d2ca;border-radius:7px;padding:5px 12px;font-size:11px;color:#888;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;flex-shrink:0;">&#8634; Cambiar participante</button>
-  </div>
-
-  <!-- PARTICIPANT CARD -->
-  <div id="welcome-card" style="background:#13151e;border:1px solid #2a2d3a;border-radius:10px;padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-    <div>
-      <div style="font-size:13px;font-weight:700;color:#e8e6e0;" id="welcome-name"></div>
-      <div style="font-size:11px;color:#666;" id="welcome-company"></div>
-    </div>
-    <div style="font-size:22px;">&#128100;</div>
-  </div>
-
-  <!-- SECTION: CAPACITACIÓN -->
-  <div style="display:block;">
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-    <div style="width:3px;height:18px;background:var(--brand,#f59e0b);border-radius:2px;flex-shrink:0;"></div>
-    <div style="font-size:11px;font-weight:800;color:#1a1a1a;letter-spacing:.06em;">MATERIAL DE CAPACITACIÓN</div>
-  </div>
-
-  <!-- Curso card -->
-  <div onclick="goToCourse()" style="background:#13151e;border:1px solid #2a2d3a;border-radius:12px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;transition:border-color .15s;" onmouseover="this.style.borderColor='#f59e0b55'" onmouseout="this.style.borderColor='#2a2d3a'">
-    <div style="display:flex;gap:12px;align-items:center;">
-      <div style="width:38px;height:38px;background:#1f1a0a;border:1px solid #f59e0b44;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#128218;</div>
-      <div>
-        <div style="font-size:13px;font-weight:700;color:#e8e6e0;margin-bottom:2px;">Curso de inducción</div>
-        <div style="font-size:11px;color:#666;">3 módulos · ~11 min · con preguntas de verificación</div>
-        <div id="course-progress-label" style="font-size:10px;color:#f59e0b;margin-top:3px;font-weight:700;"></div>
+    <div class="app-header-right">
+      <div class="app-user" title="Cambiar participante" onclick="changeParticipant()" style="cursor:pointer;">
+        <div class="app-user-avatar" id="app-user-avatar">U</div>
+        <span id="app-user-name">Usuario</span>
       </div>
     </div>
-    <div style="font-size:18px;color:#555;flex-shrink:0;">&#8594;</div>
   </div>
 
-  <!-- Checklist card -->
-  <button onclick="runChecklist()" style="display:flex;width:100%;box-sizing:border-box;background:transparent;border:1px solid #d5d2ca;border-radius:12px;padding:12px 16px;margin-bottom:22px;align-items:center;gap:12px;cursor:pointer;font-family:inherit;text-align:left;">
-    <div style="width:38px;height:38px;background:#f5f3ef;border:1px solid #e0ddd6;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#128203;</div>
-    <div>
-      <div style="font-size:13px;font-weight:700;color:#1a1a1a;">Checklist de Inspección</div>
-      <div style="font-size:11px;color:#888;margin-top:1px;">Descarga e imprime el checklist de los 17 puntos para uso en campo</div>
+  <div class="lw-home">
+    <div class="lw-hero">
+      <div class="eyebrow">INICIO</div>
+      <h1 id="home-title">Tu ruta de certificación</h1>
+      <p>Completa los tres pasos para obtener tu certificado como inspector BASC.</p>
     </div>
-    <div style="font-size:18px;color:#aaa;margin-left:auto;flex-shrink:0;">&#8595;</div>
-  </button>
 
-  </div><!-- /cap section -->
-  <!-- SECTION: SIMULADOR -->
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-    <div style="width:3px;height:18px;background:var(--brand,#f59e0b);border-radius:2px;flex-shrink:0;"></div>
-    <div style="font-size:11px;font-weight:800;color:#1a1a1a;letter-spacing:.06em;">SIMULADOR</div>
-  </div>
-  <div style="font-size:13px;color:#888;margin-bottom:14px;padding-left:11px;">Elige tu nivel de inspección</div>
-  <div class="levels-grid" id="levels-grid"></div>
-  <div class="missions-preview">
-    <p class="mp-title">MISIONES — BONOS EN TODOS LOS NIVELES</p>
-    <div class="mgrid">
-      <div class="mc"><div class="mi">&#128065;</div><div><div class="mname">Ojo de Águila</div><div class="mdesc">3 aciertos seguidos</div><div class="mpts">+200</div></div></div>
-      <div class="mc"><div class="mi">&#9889;</div><div><div class="mname">Velocista</div><div class="mdesc">Fase 1 en &lt;4 min</div><div class="mpts">+150</div></div></div>
-      <div class="mc"><div class="mi">&#127919;</div><div><div class="mname">Cazador</div><div class="mdesc">Todos los altos correctos</div><div class="mpts">+250</div></div></div>
-      <div class="mc"><div class="mi">&#127942;</div><div><div class="mname">Sin Errores</div><div class="mdesc">Inspección perfecta</div><div class="mpts">+400</div></div></div>
+    <div class="path-step" id="step-course" onclick="goToCourse()" style="cursor:pointer;">
+      <div class="path-step-num">01</div>
+      <div class="path-step-body">
+        <div class="path-step-eyebrow" id="step-course-status">PASO 1 · CAPACITACIÓN</div>
+        <div class="path-step-title">Curso de inducción BASC</div>
+        <div class="path-step-desc" id="step-course-desc">3 módulos · 15 preguntas de evaluación · ~15 min</div>
+      </div>
+      <div class="path-step-action"><span class="path-step-arrow" id="step-course-arrow">→</span></div>
     </div>
+
+    <div class="path-connector"></div>
+
+    <div class="path-step" id="step-sim" onclick="goToLevelSelect()" style="cursor:pointer;">
+      <div class="path-step-num">02</div>
+      <div class="path-step-body">
+        <div class="path-step-eyebrow" id="step-sim-status">PASO 2 · PRÁCTICA</div>
+        <div class="path-step-title">Simulador de inspección</div>
+        <div class="path-step-desc" id="step-sim-desc">4 niveles de dificultad · Caja, tractocamión, agrícola y sello</div>
+      </div>
+      <div class="path-step-action"><span class="path-step-arrow" id="step-sim-arrow">→</span></div>
+    </div>
+
+    <div class="path-connector"></div>
+
+    <div class="path-step" id="step-cert" style="cursor:default;">
+      <div class="path-step-num">03</div>
+      <div class="path-step-body">
+        <div class="path-step-eyebrow" id="step-cert-status">PASO 3 · CERTIFICACIÓN</div>
+        <div class="path-step-title">Certificado como inspector</div>
+        <div class="path-step-desc" id="step-cert-desc">Completa el nivel Experto del simulador para desbloquearlo</div>
+      </div>
+      <div class="path-step-action"><span class="path-step-arrow" id="step-cert-arrow">🔒</span></div>
+    </div>
+
+    <div class="home-extra">
+      <div class="home-extra-card" onclick="runChecklist()">
+        <div class="home-extra-ico">📋</div>
+        <div style="flex:1;">
+          <div class="home-extra-title">Checklist de inspección</div>
+          <div class="home-extra-desc">Descarga el checklist de los 17 puntos para uso en campo</div>
+        </div>
+        <div class="home-extra-arrow">↓</div>
+      </div>
+    </div>
+
+    <div class="app-footer">Cargo Inspector Pro · Desarrollado por <strong>LOWRISK</strong> · 2026</div>
   </div>
-  <div class="lb-wrap">
-    <div class="lb-header"><span class="lb-title">&#127942; TOP 10 — MEJORES INSPECTORES</span><span class="lb-sub">Todos los niveles</span></div>
-    <div id="start-lb-rows"><div class="lb-empty">Sé el primero en completar una inspección</div></div>
-  </div>
-  <button class="sbtn" id="start-btn" onclick="startGame()" disabled>Selecciona un nivel para comenzar</button>
 </div>
+
+<!-- ══ LEVEL SELECT (sub-screen of simulator) ══ -->
+<div id="scr-level-select" class="scr">
+  <div class="app-header">
+    <div class="app-header-left">
+      <button class="hdr-back-btn" onclick="backToHome()">← Inicio</button>
+      <div class="app-brand-divider"></div>
+      <div class="app-brand"><img class="app-brand-logo" src="" alt="LOWRISK"/></div>
+    </div>
+    <div class="app-header-right">
+      <div class="app-user"><div class="app-user-avatar" id="app-user-avatar-2">U</div><span id="app-user-name-2">Usuario</span></div>
+    </div>
+  </div>
+  <div class="lw">
+    <div class="lw-hero">
+      <div class="eyebrow">PASO 2 · SIMULADOR</div>
+      <h1>Elige tu nivel</h1>
+      <p>Cuatro niveles de dificultad creciente. Completa el nivel Experto para desbloquear tu certificado.</p>
+    </div>
+    <div class="levels-grid" id="levels-grid"></div>
+    <button class="sbtn brand-btn" id="start-btn" onclick="startGame()" disabled style="margin-top:20px;">Selecciona un nivel para comenzar</button>
+    <div class="app-footer">Cargo Inspector Pro · Desarrollado por <strong>LOWRISK</strong></div>
+  </div>
 </div>
 
 <!-- ══ INSPECT ══ -->
@@ -767,7 +1060,7 @@ svg{width:100%;height:auto;}
 // CONFIGURACIÓN
 // ════════════════════════════════════════
 const ADMIN_PW   = 'admin2024';
-const LOWRISK_LOGO = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB1CAIAAAAKmLJbAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAjG0lEQVR42sV9u64t23ZVa73qnnMu5mIjZFkCIwsJkAkQsRO+g4Qf4CeQ4CPgA5wQIBETIBEQkkBEgsAiRZbNta/v2atGI+iP0UdVzbnm2mffvZe2zlmaq+acVePRH6213gf/13/653r7JWgAIAAAAQkgCMgAAQL9D5cff11j/gJCGyBwgBRJCQIIkJABx2G/sN//F9v3vycdp48lCUDy9wlf6kei2dunX//4L//V93/yJ+P776Bh8kdmPjMJgBLEGAsMgiAV18k/CwAo0gQQoihAUAyCavwgmnTYtv/B7/91yPK9jCGeD8/8/LG8FpcprmTdMQCDBAJU3hjjw0HQoAH+Dfy9P8D2u/jKPxq//u1ffP/zn+uHHzjeIAIW9ymABHMkyZohgBBA1Ui3sUI8ch+ZIViuOZ8r2/bjEyAZMAT4zED1eSKBDRLxBhDcBIE+cjlxMbOIcdchwLiJkAZ9bQiUgRRBvR32tn36BNO8m9/4EItmx48/fhr62TGOQzbEAW0iBd87EiRgAKQMc1QlifIlOiQRWyz+uGRQgASjIOHg8LVt/nmD2mnCAQDGMgU1O4MANEABBgg2+qhQEIQNppoV/wKfetHC6tCIAUDUAGAUaEZfJPw6q5n+oyHBfIubiOFjFU9PUyw1EGE/VIMT45KrlWRaOd+3jFfNZxaCGx4Se5tzv2z0ZZBGIQa6lnB8rN9TrgbfQRKB4Z9ei0KK9TCfgdBXNhuLX1EtLl/N5RvqwoHYq1zfnRaD9S7Icpcv39G/eUddQC0fBwEmnx/JjVd+mvwrFJNjNVESiCEwh5Ekrj5NCnv1NcfaV4eRJn8gG+k6YvuTClNmgIyQpmeaztmI4W4vR/luTmO1AwQF2y92fd4VAGJkyHH6GbXFpNj+ch9SHkaHfw1vBnRajNp6X2ld53LMxTPEDBBia87YIWYnFvvIx8xBH8M9vOSfp1hVCqsaAUG4S5I6DQUhzpUeW6eGpltVA6xvE0kw0Q5oxA5QeA2/o5o01i9fcZQhDEIc0pjhEIYwriuAHqdq1zDFuEEiaaCJqHcRcJ8TnimfNy2FBOwe3irXf2555VzkHCw2h8AGHm6hyfk+M4QjdrsQMWmsoLA3cX/Et/jxoD7jWNHoEUKExRpk3LJg0A563AAyAhK34/HUPlCEhVEIp9+dAkGOiqBjJmOGweOy3cuCeybSDDr11PXgzigJX9sXZuAB4uIVM3w4EC7HIIMAHMAhDTcMkvm1Sy6VEYFqJCP6kkVgLRK+AkUMSqw58ADwZvgM0x9a7q/cBib/QjTzzfIVHPEPmwb1TdZz7E6KpAfBMlGDRzN+bLnHgTEov+0Ri2qoJTQCj7S+Bhlgotsin0YNQjBbA+dzKvzeQtXqdsu/eaqdAV7Z94z1vpHZSNcQLk1pBwkx1od69CXwyMVxgKec+TJuzH2vuW8yD9cuueMy3sQeNxbuNo6JBH40p6qMwnlyswaOrxpnXG5YGtIgDBCl1aB5DOFbcxhQ8xGLb1xXScRfpDBGhmqVwXsYrB30IR4tuljiiMd3nAM5x1brhI8JwJCVSkb6BH0bX7g8ISWeEgjBgQGx+TXKgAF+cvN4jhbHsZqmIRkTPKFIaG/Y1UFWuHCBS+5tCB+4u2v0qvITvwnL8UownigOIQ8dRnqtS+Z02dwkY5n3LeuTIjUASmEseI4VdgbqZjnbA8AYw4GBDMVseeuzCfBdMdDywgj401gzw8cvuKRfNkUeihHQEGbk6ivMJ8AsnIo8ApHbusiz/dHGfdRETkRzhJ2WTJ4Z3uSE8765RoSv7XdOwxyolL+UcOSyMr5mCo5LiJsrAKTAzaE0BUAU2QfEbqlzsRfGwLz+MvGRQwLkDqoWHeRB21jA2FiDYx3rO6Aiw0vGZsoshhnko0LOUXcmPozFfzPukPKceSZiI8O6mV3VOqcAmHAI7usP5ob2/CbznyWv1ikcIffVrLN/R+FEDdJTc3Q82zKJi/32QTdBK1sSHporlPb13OEMCTJXTDDSB2nk6NY4mDCMClwYtExPTIQpcBNlpMuA9RXAP4f2Wyxp4amWxbatcZJeSqWFq6XgZGhiY35h7uoFA9JBJr7j53MJLs6AM1b22Dngp+WrnO3Yl6gASRLy6vfKozrZ8PLDcEyKK16xjgjWV3+FURbAoSR6Ht61yU5x6ii8hh5mGLkDb76IiA1heBJd4Mgs0QE67u/dmtVmdzrs4YDe3fv9tVKyBd/oR/dUF282p4ozUoHyTLtK42HQVrBEgFE4/Fd5JEMCybA0fuE2JFLfXXp4l2z88fSZSXy2XUgw+K+vF0d30IA4w/nBZBdK3FM2lwjERMygwGGdRPXK1A4H6AdADAM1oE37/epTcVrjOs28RxAWQxxbYA533WI3KV89jm582iTu5e7OklzeMggKCFRJP5GaeLLHbfYmHIA556LIa2AgJONwqBMxV/drmR8FjYOi5PQY98//bU0HnS2dVFRipx3kzNCPjln7sp12oz3X7gFCPHWYGarnhTYI7MAwh7X1QlTbMc+4bUv5gcfj6y6OgG9cJuQboqR5bxZDFumKiMHIGZmAIwfKjhgGku93t2d0XlWOZ3iC00LeCIEHwLGjoMGXHl+N0Lra68gERmb8Z5SpAZH2rVygazRCOMU1IRZM0gZEqk1ySJUfANBwCsDkzG1i/BgkCRvFuyy6L2FHstvFObLInCuGFIF4o2PUR5s3mPOSvhdpxA9k9F8ugubUI4U3q7EO7lXGGVrLWYCkMsLXVahMF4jQEsVUMLqj0gIrJ7qDplHhiRv9kWiiTROxxHFq3nLSuGV2xJnG1kJaciIJ34JjESk3dWQFXtOS+LNvCelqur2C/ky2mEJB44A5+5VBXbzdTJtwCCLN0CKXd9HOLxnESi0K+IrmgxfwtkHVPXBKs5D+8iZSyIB6FCxpmTyHVEzD8/mxB+0n60oXPgu/evD36IqBJX5y550iHDg55GZoVOTz2pL8aQgUC/ItT2PkSAkHe9I7tV5uQWiADsmMhEmjWDrFdihkbgMO8tBITVEIaG7QiPfsp04sDK9Zl25YtT5EnzlaP8XkZHBU8RKGZCxwuD/4KmuBSINAO2a4pQGQi7KFgGgMS0IxltFMWBZF6sm+XpcVV8iOjTk+Ifor7qFICJVqvpcXMvUF0FSnAukMVqZUGYSMblGS9wiqIHZw+K1aNi7WkIcQ4Bg+9AwJDS2Nto4E/l06cGTIwAdRRznDdU1qRhhciaqS+KSz5U2S8xtdxTeLmgLlLKvJQ7NEIuVicUmD3DxUVhNmNuMpQDDq8KA68A2PlENMYwSGNODOUDeZIV9cIJ8BSlyVT181xDN75ILDRoyxZOynQOG60blqEFTy1BpVymyvCgPhmPKawZQjnSithbolzRe4OhtQljg8njFQG993liD3lw/vHrnKyXtrsp9TAjuSzHIhN91wu4y2hls9qBtcFB5p2dRImZA2F+W0J3K0auvMN9YLooBpsCd1EbrKacSVzkc0JzHECu++HN7/yIO77080QOdraYDMlWAUSsSEktpn2hKXmxv70CNY0IJFYStirGRqHSY9AOoovLQi89uB1lkzNwByUJXCe84/1+voDIUAjgGNA4e58Yp8LN/dHS2fxTzse0JNNHj73gH6otWIAduoUeiXJm4XIqD5/qGRu9culj6JLVigIK0gQiHwtAjvfmYAtraik7AJIvj02KPpd0+ectR2BHhn7v2uDo91xvY9aQqot1FCdxEW7milm2/gO+go7Of4i1/hl7/E2+HqZgXlz5xujoyb42vk4VoWAzBWfNVLAZtC5uyetJiYQae5Bdi+/4c/1dshcswRPifMqoIMi7Xuk8ktIZpWw7IE14U/TlE3KOJnxn/6Z//tt7/7P0dofJTgX9UUJCriQJXrqlAfko5dZLPKKT5sE8EqaxLNjk9vf/VH/2T8w3/APfR2HF7hU5KqnqrwLt73OzNFUtb11KnlKBm4i8SHjs34u3/8z/7s019tXpqUMB9GIVzLQpmaMjUSrZTujaqJKJVNZg0aSOFt498y/ed/9Df//vdvn45hqYebmBcJz1Qbb1RjkNM4KttwtHLMqhL6fmeHWkTSBr7jH/5r+9nfvttu91GXXgvCdPETa2KC/YedP3LbukLEc8hwnLk2V0guUTybZp1NfGcMfpLFH9AyL9vJ7xiGi0rcMMAbxH/S+RgsfFEwasz60l7wFyvfzLO1YdoXTl00o/BG7nz7ZLtLoa3btDuOwm/glQCJXFjxeHPHFvYBHC5naUV1iZPWvUqXiR+uhzaHB5GCVGjIcUJJE8eQhtdxABDeEtcN6AMit3DTobBPEyEXrGzEATiTpJSYbUk5V9x6IFRtVh6dpQx3bsUsAs1u2nkbGjaq5YOYlS67JIKNN0bpWmXgjxISF5t4OO0CPdfGOwxrU3MWqWhkYC65YgmwgnjIIpqaCw/7IvSOWF6bKMiowQ5mTfU42KrY3BM1Qtn3QcIO0soaylcIp7/+yfjgnQB6KeNM4utc971sKy7GWsXCISuZWiYVXqXt4nLxp61GgZJXHZyWleuV3wVUJzqxopieT4NDeqOrOq5AU/7csYLP6OD6b/1gLVycA+3/29QWRYaIdoPDTn5l0rF+i/670UB/bzdEC2lE47CQICs1JoEVOFUx+jam1/shGJAz+RMFDTwXh2EWgjB/b/WatbTsNChVBPeIaF9mtL2uWcZyw3fvVQcY+t2xXDpl0k7spFDDt/uQGt6nDEdTCrTI3FoJbcgq1ZCP1J5o5vFyqtSjqIlZzz2TdX0u5KvMX6TnJe4EywDfq7IfDeujK08Xv57T7tcUdjKHmvWhEa1b6J1VuTdDCxw0TrQvmAXJmjyE+zJidHlFTNtau9iJ0+0h/hMLwbJoMFSxS40BQmAkfru6mRho3k/dgEKx7WETBNImUZhTsqRrskNyxfY4Sf0iSuLCo9u08GV8lnK8BGyFWUnWVncO6JYphs5BrZMcrVT7+YA/EVr+FA3mvGne+j01kady49/tptr2mqASZ+Ch3pSiKZiaAyk0Ml6pjHQcsWAv3F23lc0p1etLnW8+wMfiCk6pDZ+rzk5/6m/MFb1UI7e39ZQUsuqp0JZc5dxUqG8Hxybe2j6xLefIcQ5xaxZcS2jLCqWrPrebhaFomWBopbsgTRyuwyr5c7Vi4DtL9dFovmjKr8OdQ3Xsfrde2H+19yxEzdEKS+us7MyiiUpA2mg22qrJ1i2Z5sV1KYLgikBxJmmZ8kx6VMsSDmWQBsxmMOTaN1TzFkWgYgnQ8KUBuh3Qq+nozqzPxPVKiXvYhSdiOC1RvpqUNfp3lDAmY2THfE090iCAAwngjIcQQtU3dK37pQAl4j9zys+sZdsXFQOTKsWbbvTlvA7urTk+XXAa6/fmibtbQrEcErttyNtebHTxpGxRoKasNVal44FGysaKmSCr1tVpuFYnNbqgQpHULUXkiWBmDyPpLskoy+ZfZCOVGwV23Y7vuyaib7UXgzzD3WxkYD851ydF8nRceURqF+a1JSkdlyEChG49Dx6DNJV53OcCs5a4O928WOvzuxJx4+ID8K7FeOIhPxSE2ETcddoRK+JRtfXZ94NyrWW2sXAoStCQuR6tlH7VtYOgsHnClri5no01ve0SV21ZmkVf+07TLLaNHMAgp9xW5R7E68x9lF/+jLfv7gNbY6TWdq6yO1WN6IQVJ/OkjhqnApMo1GIScKO8RlFMvfPSaZWJlGsBMHokypaiOjhnuTjGXTqdiNJHyqJPZrr7vc8Iw0l6Cm7NKaxitBrFNLuszCOY1sfEfce/Mz7RzPI56S2eRrnsp1Ndp1oo9EFP32jt9XGm01itC94Z6m6me6vDd23LI2NSMcnuSvKKijyjPactp7wgA+LZVgnttlbOp3ZLie0OmhwmpYE290yoTIs5VE88xXUFlP2fHkQ8I8iMAgi3kDrwoJ6sBZE6/f5yZ8mR++zer87SNqwzeeMhFyuIHH5XbE+rdw4Vl89e+7ZgiINRoDeRTeFeDNhwl6Pl31xI+oJ4M4tZmzfxUWx3xTZ5Rnff0T81THPGfDVVnrCUM4EZAYyRE1jYNFvsoYjlGA1nXFKsyVyC3iYqSmiaAD775o1JIjflSagsNKiiCWyqVmQJXXFK7U91G2AxYcXZYtb530MIp5E92YF68Tr0k4GSNfhb18hvV2SyiZWuuU2XCrBxvf54g1M56KhS836s8urO4voYD02GXFn1NMdFrXhnZu2VU6eKUKnLmW0+GRnU6PU/N+bntibyORDah/gUdbQo6Hkcfac6WfJdzdZf/UInCTcsrEjmFZND6Nr5UVgxzpK19ReuKuaL6lG6bFtbqz3Gk00ufGYTnNOqfz0A3/keVKuCM0LxU80VoplFdsBIdVN6Nq69GopCHNzkreZkVNPF3QM668K07cZ96ay9k5sm26b3nunMhzH7d1f9a3F0iKWIswPDAuGxByHOP6XJKb4D1/YrvaCXS6eLS6vQ9IePQrCmZ1hdJQtjaoCJ2DtFdub021Te7cbp6wydW5wo8VBrlmCBbA5rWoKKh1fLvqSaUZjsEMWgtqXpD1ebUVunVyJx49BV0nJxT66DXRDh3t1VLycp+Mktwyce7eXMbz3+xWr1A+PFqdEox+wflA2l254Kz98lAOGbfS+45F48953lVCRxOi1VLdeiV6LOIXZ0P1rHU1WsSuuVU4+golMc/RmjfI2jd6MrgTk0SnNRUqEM+KdKopqqJ97XwL1TcHoBiQoIF6oHzJL1FVuVN2rA25QktBZnbA2xbhLRi2OPh3nQrvpdsPR2uE9R4C2eVzH1Hngt4VWj0PBmprllMoYN3KsLd2cMednNLAZPulDhPrHCbdld62fbY4pxaiHuhZMwQ0tb5Wvl3PhrrmdR5DMX9+jFdy94fo0k67yf0czSaC93ZA+xjAuyeQoQzQxdndPIBPBGAXwBDfhEEpQhfJ/3jPZKQCVzeE+9bviGbORHA75ODJ5+uYmjGYi0d8hKlKuYitlh8pI/Rw5mQWTn9bzUDdLYSK8WiiUo2JpJc3WJ6JTmJY+b2hdN0tHtzuxfSQ1iI7bk4/QIuX8djz4l7tdf7uJolaya3SjkFJ1leNUhMDveRPlXb91zpnaqpImwxEbZwy1pCnxVxmGht3AyiKiajUIYwzAMnICt6VH7Inhl499ipFP08hE/uYMLPPeECeYMJFjYpdKBrvnSvCZ7iSn1SA2laBLWU3Tb7t/u/Y/OkGpCaFljUp2x6C0wcWepPpakfIa+qSuVhN7LaaTsPrTc4f3JkVkFb1O2U0pKcyQ0+dOkbIarNwdV423rGxtOuvj9cwh3hoyn11UA5bM+JQo4RjAyF4Tzzg+hnSLxBX7sEh+xbO0FicfrXJkSrAJQFToLouxiGuPZoxpFZLHGB0QU3VS4Z4cxClWjhYSdIxGcHAIeK/+XlOcxh3rzOjkr0KtUS9ewtEmtzlZF9F69WVnjLf2ZSnE5sd30RMBQ9QVmW3KNZw0y5Nyk6dl0cp5hNHB4Oxm1o6fakI3cI7cDrQevXwfxeRPiGzuzewTmOdMlrppCxkgOPN6uVqdRJZ1MhGRGb+FSSA47Vy5ZNldO0XJYDi39rlfOacaClyrnmtGYeCu3MQFb5WRrDMGCNBAaCt9yohQN37dm08qTrX0twTupf7x3//F4+/U4KvYJeGiST3mwg19/TAVCHIwwO5FxjOGjeb6/UB8EFfMGfa/jO9JsCQLaCHINdJKyOldKeYhx6bGyCO6ZWlKvLjTZDwBpPztrhNqAP2ntwCdigvzlVvKz/973P/9rh23RbdMp2DNkN5tyty6Znb7uVV9sUS2wFKv7O9+I3zqO//nJ+Kvx45gV7EwOjIzCmLaoR4P5mhPzplPY2AmbVijnD+8hvNlGfvd3fvy/P2zfjfHJ29024zsylLP1GLxOUA2GAGtMWXP5nJuUveAL4x//93/zNj6x2BVmfMrkpkr7PGsVr3FYBd0sWHJCQOsMCzqgf/s//uv//tVf7LYPHFZgnReg8sYWzuMDmJJKzMbDEUHSiw3yURsNQQAbfgH++3/8d//wh+PHQ1bqMg0uHqh69dnaJE818gNxtFMQ+3k2SFtbml2cAWHbfxj4dDQro1OXfj1OgKuC0qbq3G+xhLa6T0Y/Af/Ptj/dtu/MBmjZ8iI6+5KDcRJAlXFn7bhlczRJwmBv8Bx+ApBZtZg3/7tB0tth4+0v+fZpG9xWc5B182p0nWdAnDFg5kebJ9HJhbR1YRmhDidxFKUi+z4ylQqJTPWmgB4BiaVtDAh6FmK9q5uo4k2ZtGns6bR8KGbxr1aabrBskKshAj5CO6Ixq+PYN2eW8Q0/debteBtHO+OBrCq/hYoJuK810hRnAXbLsch2CGTv7WC57rw78rZXcSTPvDSepEOstvLxpy4FeSk3VdDqGe3RLZZuJqbRJsJdSqbZI1yLQqmlK178mOqyU+vMiexq+n92niAyuBZv0NCOdVxrH/rjx/EYO25D+A/SB1fd6hPlTpSkz7MPC2q5wvgnL28trzNka7pk4mmUFzUNYMvKXR8Igw5YCEi4TWfupwnROuUlb2LVTrNg9FFHP06ktvI8626VwSQsdgB+5NzFFF9RqKuU5F0U5iMZ3YvBv1o6qwurgEEccyrmAZDVyDVwLfZ4KlqJRvm+jXuhadOmTo7/LFQ7p3nNyIydLdR9YpQ/g5y/l/vNKHBp49ek/KHXj44crUFJXTai0qqkoTGkpq53KDB2nqMXaZmm1odNJVZEx20Rl3Wti5f2LvqioWz+AurSrc72zJoWFO3EYT8ozXifcHsWrTQ1iboaKNhJaW0McirnDZkUhTOfpd5slcnVmCbru6ys2TbagIX8fLBu2MCvc10NpEuP4lDbWhox/ZSleivneWJeeMfJ9PKvKzNWXkyd+nxATgprnjnlY2cvmk2W2mndwrtZ4Tzko4SQz4AQQg6TdnF/S3EfSfyelGycwdKbCucIH9kqhU79ycOWUmhn28bJq1UuaMGlO4a75UY8soaJ2UUku7VLxLCM6gRWcwTwlSx7SezHS4xBxieSuCdNx0fjNUurAGBrqMo7i/dZVV5O5jIx9W0NZmqZkFYX1lCClvtXF+cREGkxEaeigSwG/ph84HVHtba65Nhb05zHoUKeYhvYPTbAGCfPfTSWSCKdOhE6eVY8ZcxyuTo5JFGA8pAyZm2Xd/eDsHE2v8niyJqGxBZKQeldiwPw05Mxvtjh54eZtLaLEcGLovcGekbMZGcBrHVRx4qJ63FAdpv7oCMV7e6m5bJZLRYIXceYhTF4pl0OQZayTU6tY0bavMB8vbC35SdrdVtDb/RIe9fPQCzTqGT6hFT13vZFOAFRnEc7jROY+8HgbwKeuli6YUQvsbJsyc/UlU3lOsXoauJc+bC4rd7EXMSDJm2R8CxcktlVOPBKB48Q/ZyW9BRcYb87a0e407sPHAQfaHbWE5oe7iY/XS2dfZ6MOU1KtgMroTkrvSY0pYvKXmBR2ThbrGvi43lcvCNABUEsRIO4hGsa49zQJDyqXVHvUp8PCeugLRJEAuKOB4TuU2fKc8M28RVEac3i5kEQYyHMlo8quURXmrETK9H3TFPvFSesTxz8ALZqY7eYqFW2d+6w0GPQm6bPXOUPevC4bg92nI9X5tVprvYaFX17b9Kua3whk6zO7JKfrOt5FbNvhaptXB270Lo7hmfKMC3KLCLpdYpyVNObsRp+PYwz+CC2mNuXXSDXaiNa0sjLzJVgW6fGKGcLsx5GvzRMmUkgrpLLB6O8ZnqKc0KldmrHkA23tnV0o7Q8djV+yynK7hRVKE3w5IPVzlt5Ymmfb+u80Wh29VIfmppqcX9M6/NCgTY04JLL8P3TVXqJee504mgHeXKUZiu05aeTgdUCNhU1PHxNZfMgRudSv4BDq2Zd+FhEfGMX3h3lU2UqHh9K1gWlPcRmz++l2cPxqWu+0MOpxylpDrOpsNuKwakgVi9TXB8jCJYo8uqHdauxWXZqLPpaCW3yjVmglw2K7eN4JPGKDOe27LBtwhd1mE18v4Dfp5MAJHJY7HevLJpEQePa1MJ3RXgnuVaHHduMmKQdwPooxc6pta6i1ruaoTW5bWfULN8z9ifz+Si4bmUpL3BX4qqUVJ4GHRZCk0L3YqSh2eqnMwENX45jkKdi43TlPK1jRPva+sC7IcsWGGyDFbCes5Wi+BI1wlNxDbv27gOI3Weg0rw5oHFtUlWRVoLAa63R6cBLTeUJZ2vDkW1yKhzyoR0WnRfm6rnw8lp7LsUzDl3vBXGu3owDe5DWgtx+8l1ww/vXP4Utj3HlMI4i0Lc4NkINeOZaWTV3sZ9ubl7NqckiIPpBcwnQsBJLd/QlH7cOacKJCfNPE6jVwsww9yQE2l89CJD8IkOs3qE4S76K1UArnkFUg6G45sWgWZORex/mqvaus3qzGYb/aYysJSWaJWAoLsf5cK/ohVjSmfsRUCUWpxLwE11gd7LYnzCUD+YjoQAJF3rqZONakE4tXKe/vff8UFj2Vn49mmiiF77JRUmjWgCsgNCpS8tZ0/KkEce1cPyUUvjf9zz9Rb25yWcb5ccQoPqZ5B2OmEoSrbVXzHrbaBxZJykF9OHTcGgMNGfGysZ0wsuGUXmsBhsWQfQzPdh7BC2zfsvMsZ/1pifjYpAsM16q6FKW3Pbzjmi5XemzqKaVd42qtz09yam3SXRxr5jOZUJocKJADHKQ6xkmMy8UT4IArfAxTjXo5CN1+loVPdN7VW6xJPytNQB6/eWysM5JzviJtqUJ8W86HgaIzOoHUYFh3nu+R603iF93ZNOqg+rypZZlzV1120NCOhTNmGYL2vcc+3KqquU5Mw00laDd4RmvUe+Hp9wfJVCd2LS2WomjpOz5Jmpq70g/5JLqauC6QjwOy6mH4lMyg6Rg3JNF1VXgXlqU7d5eNUihEki11lFofPkakC7e4pH4hJVPVWEKeApFdhGDvdvcU3j7Uv27brH7xiJnYlCzJp4Nijidat0l8W6ejTwwq+ib0CJWSM2xZV4OLCoxrhEdz9ED7g7zWnqlrydMBETTwkv0E4YqRyO5m5+MknFfSLbaoUQn41+Cu6m9yx6ilqFTqKdOzYkqbiPPfc9znm2dnIrTUnw4gw02iiBcIxdfOiGa6sMnyCW6nBEur1bggXvPg1PW9qp2wb28jyHU2RAN7WNdC9D5OLtq/6COds6n0nLoifrhsksZ10hJbj8HU7MTu5dtaBrQ1h9J1fnnJOqgH7zk7SMjW7FTi548O8aDw6RNOM++0O25zrqp6r0WaY15ck3ro59YGGe1zuxrVt0yTlkShQ3c+kGawqabg+p16TpuwDZT2yPDqC7nKZgtHF1VyvK+MekacuX8ektDAzFERVOnvm00W5wt8J4P+6VCXA8qlewRq3/TOaMdNGDAbsXayurPB1j7nRcJSbbZpOmIQyymqkrr0bdhVPyYFIYfSG0z1HUZxWwlWk31Ruut6YLy5FZcDRxPBfqdeHeyIT7m0s2jB2xkQi/iibhQ5Vq0psarxjvryR9pyW0v/Ky7LEtCb2t4cD2PxfiMSYstJo4TyyzTDRA24iCwLEuWH9YqWsLTjOinxuDkoK0dmN3keB195Sy7r5Yf1dWY0AVXO7EW07Jj1hEszmRi3erWdfZR1knIQFD7X/75r3/rd74bb+c+DUDv4hWufJwLMINKWhptqiOOVPBVU5+palWKyTqN9iBrb46T5icUBp5T19kYY7aBi1ZPTr7kobD0NpRa2ist2MYtJsyz1WLra7jGKJOGF64pCGH/8d/9Fw6DtqklhsWn1CtuAGEWmjkPgesfhjhGwEAjGzwM8RAPDQ2ZNvjZoMrm8DITKbNhJm7gBtvipCdC1AAH4xvFnB6m/LN6QJIKwsan2GRJk5l5AY+DPvJi2i2cYZ76QhqLVohmt+0fTDDIoqOzD4UavL9QElSdYeIdLELgsP1/5CMOJnPuCPAAAAAASUVORK5CYII=';
+const LOWRISK_LOGO = 'data:image/png;base64,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';
 
 const SHEETS_URL = '';   // URL del Sheet de contenido (CSV). Opcional.
 // COMPANY_CODES: mapa de código corto → URL del Apps Script de la empresa
@@ -1039,7 +1332,13 @@ const G={
 // ── UTILS ──
 function p2(n){return String(n).padStart(2,'0');}
 function elapsed(){return Math.floor((Date.now()-G.start)/1000);}
-function showScreen(id){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function showScreen(id){
+  document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('active');});
+  var sc = document.getElementById(id);
+  if(sc) sc.classList.add('active');
+  try{ applyBranding(); }catch(e){}
+  window.scrollTo(0,0);
+}
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function shuffleZones(zones,hard,novato){
   return zones.map(z=>{
@@ -1324,7 +1623,41 @@ function applyBranding(){
   if(regTitle)regTitle.textContent=COMPANY.name;
   const homeTitle=document.getElementById('home-company-title');
   if(homeTitle && COMPANY.name && !COMPANY.demo)homeTitle.textContent=COMPANY.name;
+
+  // Update NEW app-header elements (HOME + level-select)
+  var brandLogos = document.querySelectorAll('.app-brand-logo');
+  brandLogos.forEach(function(img){ if(img.src !== LOWRISK_LOGO) img.src = LOWRISK_LOGO; });
+
+  var companyName = document.getElementById('app-company-name');
+  if(companyName) companyName.textContent = (COMPANY && COMPANY.name) ? COMPANY.name : 'Modo demo';
+
+  var companyLogo = document.getElementById('app-company-logo');
+  if(companyLogo){
+    if(COMPANY && COMPANY.logo){
+      companyLogo.src = COMPANY.logo;
+      companyLogo.style.display = 'block';
+      companyLogo.onerror = function(){ companyLogo.style.display='none'; };
+    } else {
+      companyLogo.style.display = 'none';
+    }
+  }
+
+  var userName = (PARTICIPANT && PARTICIPANT.name) ? PARTICIPANT.name : 'Usuario';
+  var userInitial = userName.charAt(0).toUpperCase();
+  ['app-user-name','app-user-name-2'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.textContent = userName;
+  });
+  ['app-user-avatar','app-user-avatar-2'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.textContent = userInitial;
+  });
+
+  var regName = document.getElementById('reg-company-name-top');
+  if(regName) regName.textContent = (COMPANY && COMPANY.name) ? COMPANY.name : 'Mi Empresa';
+
 }
+
 
 // ── Send result to company Apps Script ─────────────────────
 async function sendResultToSheet(data){
@@ -1346,15 +1679,159 @@ function goLevels(){
   const name=document.getElementById('r-name').value.trim();
   if(!name){alert('Por favor ingresa tu nombre completo.');return;}
   PARTICIPANT={name, company:COMPANY.name||'—'};
-  // Reset course seen flag so each new participant sees the course
   try{sessionStorage.removeItem('isc_course_seen');}catch(e){}
-  const wn=document.getElementById('welcome-name');
-  if(wn)wn.textContent=name;
-  const wc=document.getElementById('welcome-company');
-  if(wc)wc.textContent=PARTICIPANT.company!=='—'?PARTICIPANT.company:'';
-  buildLevelCards();
-  renderLeaderboard('start-lb-rows',null);
+  try{ applyBranding(); }catch(e){}
+  try{ updateHomeSteps(); }catch(e){}
   showScreen('scr-levels');
+  window.scrollTo(0,0);
+}
+
+function goToLevelSelect(){
+  if(!PARTICIPANT || !PARTICIPANT.name){ showScreen('scr-reg'); return; }
+  try { buildLevelCards(); } catch(e){ console.warn('buildLevelCards failed:', e); }
+  SEL_LEVEL = null;
+  var startBtn = document.getElementById('start-btn');
+  if(startBtn){
+    startBtn.disabled = true;
+    startBtn.textContent = 'Selecciona un nivel para comenzar';
+  }
+  try { applyBranding(); } catch(e){}
+  try { renderLeaderboard('start-lb-rows',null); } catch(e){}
+  showScreen('scr-level-select');
+  window.scrollTo(0,0);
+}
+
+function backToHome(){
+  try { updateHomeSteps(); } catch(e){}
+  showScreen('scr-levels');
+  window.scrollTo(0,0);
+}
+
+function updateHomeSteps(){
+  var cStep = document.getElementById('step-course');
+  var cStatus = document.getElementById('step-course-status');
+  var cDesc = document.getElementById('step-course-desc');
+  var cArrow = document.getElementById('step-course-arrow');
+
+  var sStep = document.getElementById('step-sim');
+  var sStatus = document.getElementById('step-sim-status');
+  var sDesc = document.getElementById('step-sim-desc');
+  var sArrow = document.getElementById('step-sim-arrow');
+
+  var certStep = document.getElementById('step-cert');
+  var certStatus = document.getElementById('step-cert-status');
+  var certDesc = document.getElementById('step-cert-desc');
+  var certArrow = document.getElementById('step-cert-arrow');
+
+  var courseDone = false;
+  try {
+    var mods = JSON.parse(localStorage.getItem('isc_course_mods') || '[]');
+    courseDone = mods && mods.length >= 3;
+  } catch(e){}
+
+  var simDone = false, expertDone = false;
+  try {
+    var sims = JSON.parse(localStorage.getItem('isc_results') || '[]');
+    simDone = sims && sims.length > 0;
+    expertDone = sims.some(function(r){ return r.level === 'Experto' && (r.pct || 0) >= 85; });
+  } catch(e){}
+
+  if(cStep){
+    cStep.classList.remove('active','completed','locked');
+    if(courseDone){
+      cStep.classList.add('completed');
+      if(cStatus) cStatus.textContent = 'PASO 1 · COMPLETADO';
+      if(cDesc) cDesc.textContent = 'Repasa el curso cuando quieras';
+      if(cArrow) cArrow.textContent = '✓';
+    } else {
+      cStep.classList.add('active');
+      if(cStatus) cStatus.textContent = 'PASO 1 · EMPIEZA AQUÍ';
+      if(cDesc) cDesc.textContent = '3 módulos · 15 preguntas de evaluación · ~15 min';
+      if(cArrow) cArrow.textContent = '→';
+    }
+  }
+
+  if(sStep){
+    sStep.classList.remove('active','completed','locked');
+    if(expertDone){
+      sStep.classList.add('completed');
+      if(sStatus) sStatus.textContent = 'PASO 2 · COMPLETADO';
+      if(sDesc) sDesc.textContent = 'Repite el simulador para mejorar tus marcas';
+      if(sArrow) sArrow.textContent = '✓';
+    } else if(courseDone || simDone){
+      sStep.classList.add('active');
+      if(sStatus) sStatus.textContent = simDone ? 'PASO 2 · EN PROGRESO' : 'PASO 2 · DISPONIBLE';
+      if(sArrow) sArrow.textContent = '→';
+    } else {
+      if(sStatus) sStatus.textContent = 'PASO 2 · DISPONIBLE';
+      if(sArrow) sArrow.textContent = '→';
+    }
+  }
+
+  if(certStep){
+    certStep.classList.remove('active','completed','locked');
+    if(expertDone){
+      certStep.classList.add('active');
+      if(certStatus) certStatus.textContent = 'PASO 3 · DESBLOQUEADO';
+      if(certDesc) certDesc.textContent = 'Descarga tu certificado como inspector BASC';
+      if(certArrow) certArrow.textContent = '↓';
+      certStep.style.cursor = 'pointer';
+      certStep.onclick = function(){ downloadCertificateFromHome(); };
+    } else {
+      certStep.classList.add('locked');
+      if(certStatus) certStatus.textContent = 'PASO 3 · BLOQUEADO';
+      if(certDesc) certDesc.textContent = 'Completa el nivel Experto del simulador (≥85%) para desbloquearlo';
+      if(certArrow) certArrow.textContent = '🔒';
+      certStep.style.cursor = 'default';
+      certStep.onclick = null;
+    }
+  }
+}
+
+
+function downloadCertificateFromHome(){
+  try {
+    // Find the last Experto record ≥85%
+    var sims = JSON.parse(localStorage.getItem('isc_results') || '[]');
+    var expertPass = sims.filter(function(r){ return r.level === 'Experto' && (r.pct || 0) >= 85; });
+    if(expertPass.length === 0){
+      alert('Primero debes aprobar el nivel Experto (≥85%) en el simulador.');
+      return;
+    }
+    // Use the latest one
+    var rec = expertPass[expertPass.length - 1];
+    // Restore SEL_LEVEL + G minimally for downloadCertificate to work
+    SEL_LEVEL = LEVELS.find(function(l){return l.name === rec.level;}) || LEVELS[LEVELS.length-1];
+    G.score = rec.total || 0;
+    G.baseScore = rec.base || 0;
+    G.bonusScore = rec.bonus || 0;
+    G.missionsEarned = new Set((rec.missions || '').split(';').filter(Boolean));
+    // Call the certificate generator
+    if(typeof downloadCertificate === 'function'){
+      downloadCertificate();
+    } else {
+      alert('La función de certificado no está disponible.');
+    }
+  } catch(e){
+    console.error('[Cert] download from home failed:', e);
+    alert('Error generando el certificado: ' + e.message);
+  }
+}
+
+function courseFinishToHome(){
+  try{ sessionStorage.setItem('isc_course_seen','1'); }catch(e){}
+  try{ updateHomeSteps(); }catch(e){}
+  showScreen('scr-levels');
+  window.scrollTo(0,0);
+}
+
+function courseSkipToSim(){
+  try{ sessionStorage.setItem('isc_course_seen','1'); }catch(e){}
+  try{ updateHomeSteps(); }catch(e){}
+  if(!PARTICIPANT || !PARTICIPANT.name){
+    showScreen('scr-reg'); window.scrollTo(0,0); return;
+  }
+  goToLevelSelect();
 }
 
 // ── START GAME ──
@@ -2985,7 +3462,7 @@ const COURSE_MODS = [
     slides:[
       {
         type:'text',
-        img:'course_points_1',
+        img:'course_points_2',
         imgAlt:'Inspector siguiendo el recorrido de revisión',
         title:'Prepara el área y el equipo antes de empezar.',
         lead:'Antes de que el camión llegue, tienes que preparar las condiciones para una inspección segura y documentada.',
@@ -2993,7 +3470,7 @@ const COURSE_MODS = [
         cards:[
           {icon:'&#128247;', title:'Área con cámara de CCTV', text:'La inspección debe realizarse en una zona donde haya cámara de circuito cerrado apuntando al vehículo. De preferencia al ingreso de las instalaciones. Eso protege al inspector y a la empresa.'},
           {icon:'&#127909;', title:'Cámara de acción personal', text:'Además del CCTV, un buen inspector lleva consigo una cámara de acción o cámara portátil para grabar su recorrido. Es evidencia adicional en caso de disputa o investigación.'},
-          {icon:'&#9935;', title:'Equipo de protección personal (EPP)', text:'Obligatorio antes de cada inspección: casco, guantes de trabajo, botas de seguridad, chaleco reflectante y lentes de protección. No se inspecciona sin EPP.'},
+          {icon:'&#129686;', title:'Equipo de protección personal (EPP)', text:'Obligatorio antes de cada inspección: casco, guantes de trabajo, botas de seguridad, chaleco reflectante y lentes de protección. No se inspecciona sin EPP.'},
           {icon:'&#128296;', title:'Herramientas listas', text:'Antes de comenzar verifica que tienes: espejo cóncavo telescópico, linterna, martillo de goma, espejo de mano, distanciómetro y calibrador de llantas.'},
         ]
       },
@@ -3133,7 +3610,7 @@ const COURSE_MODS = [
       },
       {
         type:'text',
-        img:'course_seals_1',
+        img:'course_seals_2',
         imgAlt:'Diferentes tipos de sellos de seguridad',
         title:'El sello es la firma de que nadie abrió la caja.',
         lead:'Cuando el camión sale del almacén, le ponen un sello en la puerta. Si alguien abre la caja en el camino y vuelve a cerrarla, el sello debería mostrar que fue manipulado. Tu trabajo es verificar que ese sello esté bien.',
@@ -3260,9 +3737,13 @@ function exitCourse(){
 }
 
 function skipCourse(){
-  // Mark course as seen so it doesn't auto-show again this session
-  try{sessionStorage.setItem('isc_course_seen','1');}catch(e){}
+  try{ sessionStorage.setItem('isc_course_seen','1'); }catch(e){}
+  try{ updateHomeSteps(); }catch(e){}
+  if(!PARTICIPANT || !PARTICIPANT.name){
+    showScreen('scr-reg'); window.scrollTo(0,0); return;
+  }
   showScreen('scr-levels');
+  window.scrollTo(0,0);
 }
 
 function renderCourseSlide(){
@@ -3313,13 +3794,36 @@ function buildSlide(s, mi, si){
   else if(s.type==='vvtt'){
     html += `<div class="c-title">${s.title}</div>`;
     html += `<p class="c-lead">${s.lead||''}</p>`;
-    html += `<div class="c-vvtt-grid">
-      <div class="c-vvtt-card"><div class="c-vvtt-letter">V</div><div class="c-vvtt-word">VER</div><div class="c-vvtt-desc">Inspección visual completa: cortes, marcas, deformaciones, sellador diferente</div></div>
-      <div class="c-vvtt-card"><div class="c-vvtt-letter">V</div><div class="c-vvtt-word">VERIFICAR</div><div class="c-vvtt-desc">Comparar el número físico con el número en los documentos de embarque, dígito a dígito</div></div>
-      <div class="c-vvtt-card"><div class="c-vvtt-letter">T</div><div class="c-vvtt-word">TIRAR</div><div class="c-vvtt-desc">Jalar el sello con firmeza. Un sello legítimo no cede. Si cede: manipulado.</div></div>
-      <div class="c-vvtt-card"><div class="c-vvtt-letter">T</div><div class="c-vvtt-word">TORCER</div><div class="c-vvtt-desc">Girar para detectar si el mecanismo gira libremente, lo que indica manipulación</div></div>
+    html += `<div class="vvtt-steps-dark">
+      <div class="vvtt-step-dark vvtt-c1">
+        <div class="vvtt-head"><div class="vvtt-letter">V</div><div class="vvtt-ico">👁</div></div>
+        <div class="vvtt-word">VER</div>
+        <div class="vvtt-sub">Inspección visual</div>
+        <div class="vvtt-desc">Observa el sello: cortes, marcas de herramientas, deformaciones, sellador reciente de color diferente.</div>
+      </div>
+      <div class="vvtt-arrow">→</div>
+      <div class="vvtt-step-dark vvtt-c2">
+        <div class="vvtt-head"><div class="vvtt-letter">V</div><div class="vvtt-ico">🔢</div></div>
+        <div class="vvtt-word">VERIFICAR</div>
+        <div class="vvtt-sub">Número vs. documentos</div>
+        <div class="vvtt-desc">Compara dígito a dígito el número grabado contra el documento de embarque. Una discrepancia = detención.</div>
+      </div>
+      <div class="vvtt-arrow">→</div>
+      <div class="vvtt-step-dark vvtt-c3">
+        <div class="vvtt-head"><div class="vvtt-letter">T</div><div class="vvtt-ico">⬆</div></div>
+        <div class="vvtt-word">TIRAR</div>
+        <div class="vvtt-sub">Prueba de resistencia</div>
+        <div class="vvtt-desc">Jala el sello con firmeza. Un sello íntegro no cede. Si cede: fue manipulado.</div>
+      </div>
+      <div class="vvtt-arrow">→</div>
+      <div class="vvtt-step-dark vvtt-c4">
+        <div class="vvtt-head"><div class="vvtt-letter">T</div><div class="vvtt-ico">🔄</div></div>
+        <div class="vvtt-word">TORCER</div>
+        <div class="vvtt-sub">Prueba de rotación</div>
+        <div class="vvtt-desc">Gira el sello sobre su eje. En uno íntegro, el mecanismo no gira. Si gira libremente: cortado y reensamblado.</div>
+      </div>
     </div>
-    <div class="c-highlight"><div class="c-highlight-text">&#128161; Los cuatro pasos son obligatorios. Un sello pasa VVTT solo si supera los cuatro.</div></div>`;
+    <div class="c-highlight"><div class="c-highlight-text">&#128161; Los cuatro pasos son obligatorios. Un sello pasa VVTT solo si supera los cuatro — en orden, sin saltarse ninguno.</div></div>`;
   }
   else if(s.type==='diagram'){
     const info = s.diagramType==='caja' ? CAJA_INFO : TRACTOR_INFO;
@@ -3597,8 +4101,11 @@ function showCourseComplete(){
       </div>
 
       ${overallPct>=80?`
-      <button class="sbtn brand-btn" onclick="skipCourse()" style="max-width:100%;margin-bottom:10px;">
-        Entrar al simulador &#8594;
+      <button type="button" class="sbtn brand-btn" onclick="courseFinishToHome()" style="max-width:100%;margin-bottom:10px;cursor:pointer;">
+        Volver al inicio &#8594;
+      </button>
+      <button type="button" class="sbtn" onclick="courseSkipToSim()" style="max-width:100%;margin-bottom:10px;background:transparent;border:1px solid #2a2d3a;color:#aaa;">
+        Ir directo al simulador
       </button>` : `
       <div style="background:#fff8e7;border:1px solid #f59e0b;border-radius:10px;padding:12px;margin-bottom:12px;font-size:12px;color:#92400e;">
         &#9888; Obtuviste menos del 80% de calificación global. Te recomendamos repasar los módulos donde tuviste menor puntaje antes de entrar al simulador.
@@ -3606,8 +4113,8 @@ function showCourseComplete(){
       <button class="btn btn-outline" onclick="startCourse()" style="width:100%;margin-bottom:8px;">
         &#8635; Repetir el curso
       </button>
-      <button class="sbtn" onclick="skipCourse()" style="max-width:100%;margin-bottom:10px;opacity:0.8;">
-        Entrar al simulador de todas formas &#8594;
+      <button type="button" class="sbtn" onclick="courseFinishToHome()" style="max-width:100%;margin-bottom:10px;opacity:0.8;">
+        Volver al inicio
       </button>`}
 
     </div>`;
